@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/productdetail.css">
+    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="css/cdnbootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="js/cdnbootstrap.js"></script>
+    <!--font awsom-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body style="background-color:#f7f8fa;;">
+
+    <!-- MAIN HEADER CONTAINER -->
+    <header class="main-header">
+        <div class="container">
+
+            <!-- DESKTOP TOP ROW & MOBILE TOP ROW -->
+            <div class="row align-items-center justify-content-between g-2">
+
+                <!-- Left Identity Block: Hamburger Toggle (Mobile Only) & Brand Title -->
+                <div class="col-auto d-flex align-items-center gap-2">
+                    <!-- Mobile Hamburger Menu Toggle -->
+                    
+
+                    <a href="index.html" class="brand-logo d-none d-lg-block">
+                        <!-- Custom Vector/Icon Mimicking Image Logo -->
+                        <img src="images/brand/logo-colored.svg" alt="logo">
+                    </a>
+                    <a href="list.html" class="brand-logo d-block d-lg-none" style="text-decoration: none; color: #1c1c1c; font-size: 20px; font-weight: 700;">
+                        <i class="fa-solid fa-arrow-left pe-3"></i> Products Details
+                    </a>
+                </div>
+
+                <!-- Center Block: Desktop Blue Search bar component (Hidden on Mobile) -->
+                <div class="col-12 col-md-5 col-lg-6 d-none d-md-block">
+                    <div class="input-group search-group">
+                        <input type="text" class="form-control search-input" placeholder="Search" aria-label="Search">
+                        <select class="form-select category-select">
+                            <option selected>All category</option>
+                            <option value="1">Gadgets</option>
+                            <option value="2">Clothes</option>
+                            <option value="3">Accessories</option>
+                        </select>
+                        <button class="btn btn-primary search-btn" type="button">Search</button>
+                    </div>
+                </div>
+                <!-- Right Block: Desktop Actions Panel vs Mobile Utility Row Layout -->
+                <div class="col-auto">
+                    <!-- Desktop Actions Set (Hidden on Mobile) -->
+                    <div class="d-none d-md-flex align-items-center gap-4">
+                        <a href="#" class="user-action-item">
+                            <i class="bi bi-person"></i>
+                            <span>Profile</span>
+                        </a>
+                        <a href="#" class="user-action-item">
+                            <i class="bi bi-chat-left-text"></i>
+                            <span>Message</span>
+                        </a>
+                        <a href="#" class="user-action-item">
+                            <i class="bi bi-heart"></i>
+                            <span>Orders</span>
+                        </a>
+                        <a href="cart.html" class="user-action-item">
+                            <i class="bi bi-cart3"></i>
+                            <span>My cart</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Navigation Icons (Displayed precisely as in image_058346.png) -->
+                    <div class="d-flex d-md-none align-items-center gap-3">
+                        <a href="cart.html" class="text-dark fs-4"><i class="bi bi-cart3"></i></a>
+                        <a href="#" class="text-dark fs-4"><i class="bi bi-person"></i></a>
+                    </div>
+                </div>
+
+            </div> <!-- /End Top Row -->
+
+            <!-- MOBILE SEARCH & CHIPS BAR (Only visible on Mobile viewports) -->
+            <div class="row mt-2 d-md-none">
+                <div class="col-12">
+                    <!-- Mobile Search Bar input box matching image_058346.png -->
+                    <div class="mobile-search-container">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control mobile-search-input" placeholder="Search">
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-block d-lg-none d-md-none">
+                <div class="category-container" id="categories">
+
+                    <div class="category active">All category</div>
+                    <div class="category">Gadgets</div>
+                    <div class="category">Clothes</div>
+                    <div class="category">Accessories</div>
+                    <div class="category">Shoes</div>
+                    <div class="category">Books</div>
+                    <div class="category">Sports</div>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- DESKTOP SUB INTERACTION NAVBAR (Hidden completely on mobile viewports) -->
+    <nav class="sub-navbar d-none d-md-block">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+
+                <!-- Left Nav Links Section with working Bootstrap Dropdowns -->
+                <div class="d-flex align-items-center gap-4">
+                    <a href="#" class="sub-nav-link d-flex align-items-center gap-2">
+                        <i class="bi bi-list fs-5"></i> All category
+                    </a>
+                    <div class="dropdown">
+                        <button class="sub-nav-link dropdown-toggle" type="button" id="helpDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Pages
+                        </button>
+                        <ul class="dropdown-menu shadow-sm mt-2" aria-labelledby="helpDropdown">
+                            <li><a class="dropdown-item" href="list.html">All Products</a></li>
+                            <li><a class="dropdown-item" href="product-detail.html">Product Detail</a></li>
+                            <li><a class="dropdown-item" href="cart.html">Cart</a></li>
+                        </ul>
+                    </div>
+                    <a href="#" class="sub-nav-link">Hot offers</a>
+                    <a href="#" class="sub-nav-link">Gift boxes</a>
+                    <a href="#" class="sub-nav-link">Projects</a>
+                    <a href="#" class="sub-nav-link">Menu item</a>
+
+                    <!-- Fixed Interactive Help Dropdown Menu -->
+                    <div class="dropdown">
+                        <button class="sub-nav-link dropdown-toggle" type="button" id="helpDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Help <i class="bi bi-chevron-down small ms-1 text-muted"></i>
+                        </button>
+                        <ul class="dropdown-menu shadow-sm mt-2" aria-labelledby="helpDropdown">
+                            <li><a class="dropdown-item" href="#">FAQ Support</a></li>
+                            <li><a class="dropdown-item" href="#">Contact Center</a></li>
+                            <li><a class="dropdown-item" href="#">Open Dispute</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Localization Settings Dropdowns Section -->
+                <div class="d-flex align-items-center gap-4">
+                    <!-- Fixed Currency/Language Dropdown Menu -->
+                    <div class="dropdown">
+                        <button class="sub-nav-link dropdown-toggle" type="button" id="langDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            English, USD <i class="bi bi-chevron-down small ms-1 text-muted"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-2" aria-labelledby="langDropdown">
+                            <li><a class="dropdown-item" href="#">English, USD</a></li>
+                            <li><a class="dropdown-item" href="#">Deutsch, EUR</a></li>
+                            <li><a class="dropdown-item" href="#">Español, EUR</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Fixed Shipping Region Destination Dropdown Menu -->
+                    <div class="dropdown">
+                        <button class="sub-nav-link dropdown-toggle d-flex align-items-center" type="button"
+                            id="shipDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ship to <span class="flag-icon ms-2"></span> <i
+                                class="bi bi-chevron-down small ms-1 text-muted"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-2" aria-labelledby="shipDropdown">
+                            <li><a class="dropdown-item" href="#"><span class="flag-icon me-2"></span> Germany (DE)</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">United States (US)</a></li>
+                            <li><a class="dropdown-item" href="#">United Kingdom (UK)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- MOBILE NAVIGATION SIDEBAR OFFCANVAS (Triggered via mobile hamburger click) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNavOffcanvas"
+        aria-labelledby="mobileNavOffcanvasLabel">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title text-primary fw-bold" id="mobileNavOffcanvasLabel">Navigation Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body p-0">
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action py-3"><i class="bi bi-list me-3"></i>All
+                    category</a>
+                <a href="#" class="list-group-item list-group-item-action py-3"><i class="bi bi-percent me-3"></i>Hot
+                    offers</a>
+                <a href="#" class="list-group-item list-group-item-action py-3"><i class="bi bi-box-seam me-3"></i>Gift
+                    boxes</a>
+                <a href="#" class="list-group-item list-group-item-action py-3"><i
+                        class="bi bi-folder me-3"></i>Projects</a>
+                <a href="#" class="list-group-item list-group-item-action py-3"><i
+                        class="bi bi-link-45deg me-3"></i>Menu item</a>
+                <a href="#" class="list-group-item list-group-item-action py-3"><i
+                        class="bi bi-question-circle me-3"></i>Help Center</a>
+                <div class="dropdown">
+                    <button class="sub-nav-link dropdown-toggle" type="button" id="helpDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-list fs-5"></i> Pages
+                    </button>
+                    <ul class="dropdown-menu shadow-sm mt-2" aria-labelledby="helpDropdown">
+                        <li><a class="dropdown-item" href="list.html">All Products</a></li>
+                        <li><a class="dropdown-item" href="product-detail.html">Product Detail</a></li>
+                        <li><a class="dropdown-item" href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product detail -->
+    <div class="mobile-view-container">
+        <!-- Main Feature Frame with Navigation Arrows Layer -->
+        <div class="mobile-img-display-frame">
+            <img id="mobile-main-img" src="images/cloths/image 34.png" alt="Product Image">
+            <!-- Exact overlay navigator pill box from picture -->
+            <div class="mobile-nav-pill">
+                <span onclick="triggerMobileSwipe(-1)"><i class="fa-solid fa-arrow-left"></i></span>
+                <span onclick="triggerMobileSwipe(1)"><i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+        </div>
+        <!-- Details Info Module -->
+        <div class="mobile-content-box">
+            <div class="d-flex align-items-center gap-1 mb-2">
+                <div class="text-warning small">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="far fa-star text-muted"></i>
+                </div>
+                <div class="text-muted-custom ms-2">&bull; &nbsp;<i class="fa-regular fa-comment-dots"></i> 32 reviews
+                    &nbsp;&bull;&nbsp; <i class="fa-solid fa-basket-shopping"></i> 154 sold</div>
+            </div>
+            <h5 class="fw-bold mb-1" style="font-size: 16px;">Product name goes here</h5>
+            <div class="mb-3">
+                <span class="price-highlight">$129.95</span>
+                <span class="text-muted-custom" style="font-size: 12px;">(50-100 pcs)</span>
+            </div>
+            <!-- CTA Actions Wrapper -->
+            <div class="d-flex gap-2 mb-4">
+                <button class="butn-custom-blue flex-grow-1 py-2">Send inquiry</button>
+                <button class="btn btn-outline-primary"
+                    style="border-color: #e3e8ee; color: #0d6efd; padding: 0 14px;"><i
+                        class="fa-regular fa-heart"></i></button>
+            </div>
+            <!-- Parameters Table Rows -->
+            <div class="specification-table-row">
+                <div class="spec-label">Condition</div>
+                <div class="spec-val">Brand new</div>
+            </div>
+            <div class="specification-table-row">
+                <div class="spec-label">Material</div>
+                <div class="spec-val">Plastic</div>
+            </div>
+            <div class="specification-table-row">
+                <div class="spec-label">Category</div>
+                <div class="spec-val">Electronics, gadgets</div>
+            </div>
+            <div class="specification-table-row">
+                <div class="spec-label">Item num</div>
+                <div class="spec-val">23421</div>
+            </div>
+
+            <p class="text-secondary small mt-3 mb-1" style="line-height: 1.5;">
+                Info about edu item is an ideal companion for anyone engaged in learning. The drone provides precise and
+                ...
+            </p>
+            <a href="#" class="text-decoration-none small fw-medium text-primary">Read more</a>
+
+            <!-- Embedded Footer Supplier Hub -->
+            <div class="supplier-card-mobile d-flex align-items-center justify-content-between my-4">
+                <div class="d-flex align-items-center gap-3">
+                    <div
+                        style="width:40px; height:40px; background:#cbf3f0; color:#2ec4b6; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:4px;">
+                        R</div>
+                    <div>
+                        <div class="small fw-semibold text-secondary">Supplier</div>
+                        <div class="small fw-bold">Guanjoi Trading LLC</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right text-muted"></i>
+            </div>
+            <div class="d-flex gap-3 justify-content-between mt-3 px-1 text-muted-custom text-center"
+                style="font-size: 12px;">
+                <span><img src="images/flags/DE@2x.png" class="me-1"> Germany</span>
+                <span><i class="fa-solid fa-shield"></i> Verified</span>
+                <span><i class="fa-solid fa-globe"></i> Shipping</span>
+            </div>
+        </div>
+    </div>
+    <!-- ==========================================================================
+       B. DESKTOP SCREEN ENGINE DOM ELEMENT
+       ========================================================================== -->
+    <div class="desktop-view-container">
+        <div class="row g-4">
+
+            <!-- Left Grid: Media Canvas Engine Section -->
+            <div class="col-md-4">
+                <div class="desktop-main-image-panel">
+                    <img id="desktop-large-view" src="images/cloths/image 34.png" alt="Large Product View"
+                        height="300px">
+                </div>
+
+                <!-- Micro Image Thumbnails Switch Row Track -->
+                <div class="desktop-thumb-row">
+                    <div class="desktop-thumb-box active-thumb"
+                        onclick="swapDesktopImage(this, 'images/cloths/image 34.png')">
+                        <img src="images/cloths/1.jpg">
+                    </div>
+                    <div class="desktop-thumb-box" onclick="swapDesktopImage(this, 'images/cloths/2.jpg')">
+                        <img src="images/cloths/2.jpg ">
+                    </div>
+                    <div class=" desktop-thumb-box" onclick="swapDesktopImage(this, 'images/cloths/3.jpg')">
+                        <img src="images/cloths/3.jpg">
+                    </div>
+                    <div class="desktop-thumb-box" onclick="swapDesktopImage(this, 'images/cloths/4.jpg')">
+                        <img src="images/cloths/4.jpg">
+                    </div>
+                    <div class="desktop-thumb-box" onclick="swapDesktopImage(this, 'images/cloths/5.jpg')">
+                        <img src="images/cloths/5.jpg">
+                    </div>
+                    <div class="desktop-thumb-box" onclick="swapDesktopImage(this, 'images/cloths/6.jpg')">
+                        <img src="images/cloths/6.jpg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Grid: Text Information & Specification Layout -->
+            <div class="col-md-5 px-md-4">
+                <div class="text-success small fw-medium mb-1"><i class="fa-solid fa-check"></i> In stock</div>
+                <h4 class="fw-bold text-dark mb-2" style="font-size: 20px; line-height: 1.4;">Mens Long Sleeve T-shirt
+                    Cotton Base Layer Slim Muscle</h4>
+                <div class="d-flex align-items-center gap-2 mb-3" style="font-size: 13px;">
+                    <span class="text-warning"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star-half-alt"></i></span>
+                    <span class="text-warning fw-bold">9.3</span>
+                    <span class="text-muted">&bull;&nbsp; <i class="fa-regular fa-comment-dots"></i> 32 reviews
+                        &nbsp;&bull;&nbsp; <i class="fa-solid fa-basket-shopping"></i> 154 sold</span>
+                </div>
+                <!-- Wholesale Cost Price Tiers Component Matrix -->
+                <div class="tier-pricing-grid">
+                    <div class="tier-column">
+                        <div class="tier-price" style="color:#fa3434 ;">$98.00</div>
+                        <div class="tier-qty">50-100 pcs</div>
+                    </div>
+                    <div class="tier-column">
+                        <div class="tier-price">$90.00</div>
+                        <div class="tier-qty">100-700 pcs</div>
+                    </div>
+                    <div class="tier-column">
+                        <div class="tier-price">$78.00</div>
+                        <div class="tier-qty">700+ pcs</div>
+                    </div>
+                </div>
+                <!-- Structured Param Descriptive Matrix -->
+                <table class="table table-borderless table-sm mt-3" style="font-size: 14px;">
+                    <tr>
+                        <td class="text-muted py-2" style="width:120px;">Price:</td>
+                        <td class="text-secondary py-2">Negotiable</td>
+                    </tr>
+                    <tr class="border-top" style="border-color: #f0f0f0 !important;">
+                        <td class="text-muted py-2">Type:</td>
+                        <td class="text-secondary py-2">Classic shoes</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted py-2">Material:</td>
+                        <td class="text-secondary py-2">Plastic material</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted py-2">Design:</td>
+                        <td class="text-secondary py-2">Modern nice</td>
+                    </tr>
+                    <tr class="border-top" style="border-color: #f0f0f0 !important;">
+                        <td class="text-muted pt-2">Customization:</td>
+                        <td class="text-secondary pt-2">Customized logo and <br> design custom packages</td>
+                    </tr>
+                    <tr>
+                        <td class="text-muted py-2">Protection:</td>
+                        <td class="text-secondary py-2">Refund Policy</td>
+                    </tr>
+                    <tr class="border-bottom" style="border-color: #f0f0f0 !important;">
+                        <td class="text-muted py-2">Warranty:</td>
+                        <td class="text-secondary py-2">2 years full warranty</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Right Grid: Supplier Dashboard Control Card Panel -->
+            <div class="col-md-3">
+                <div class="desktop-supplier-panel">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div
+                            style="width:48px; height:48px; background:#cbf3f0; color:#2ec4b6; font-weight:700; display:flex; align-items:center; justify-content:center; border-radius:4px; font-size:18px;">
+                            R</div>
+                        <div>
+                            <div class="text-muted small">Supplier</div>
+                            <div class="fw-bold small" style="color: #1c1c1c;">Guanjoi Trading LLC</div>
+                        </div>
+                    </div>
+                    <div class="text-secondary small d-flex flex-column gap-2 border-top pt-3" style="font-size: 13px;">
+                        <div class="mt-1"><img src="images/flags/DE@2x.png" class="me-2"> Germany, Berlin</div>
+                        <div class="mt-1"><i class="fa-solid fa-shield me-3"></i> Verified Seller</div>
+                        <div class="mt-1"><i class="fa-solid fa-globe me-3"></i> Worldwide shipping</div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-2 mt-4">
+                        <button class="butn butn-custom-blue w-100 py-2 btn-sm">Send inquiry</button>
+                        <button class="btn btn-outline-primary w-100 py-2 btn-sm"
+                            style="border-color: #e3e8ee; color:#0d6efd;">Seller's profile</button>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a href="#" class="text-decoration-none small text-primary fw-medium"><i
+                            class="fa-regular fa-heart me-1"></i> Save for later</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container d-none d-lg-block">
+        <div class="row g-4">
+            <div class="col-lg-9 col-md-8">
+                <div class="cuustom-tabs-card">
+                    <div class="custom-tabs-header">
+                        <div class="tab-trigger-link active-tab-state"
+                            onclick="switchLayoutTab(this, 'tab-description')">Description</div>
+                        <div class="tab-trigger-link" onclick="switchLayoutTab(this, 'tab-reviews')">Reviews</div>
+                        <div class="tab-trigger-link" onclick="switchLayoutTab(this, 'tab-shipping')">Shipping</div>
+                        <div class="tab-trigger-link" onclick="switchLayoutTab(this, 'tab-seller')">About seller</div>
+                    </div>
+                    <div class="tabs-dynamic-viewport">
+                        <div id="tab-description" class="tab-content-panel">
+                            <p class="text-secondary small mb-3" style="line-height: 1.6; font-size: 14px;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <br>
+                                Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                            </p>
+                            <table class="specs-grid-table">
+                                <tr>
+                                    <td class="label-col">Model</td>
+                                    <td class="value-col">#8786867</td>
+                                </tr>
+                                <tr>
+                                    <td class="label-col">Style</td>
+                                    <td class="value-col">Classic style</td>
+                                </tr>
+                                <tr>
+                                    <td class="label-col">Certificate</td>
+                                    <td class="value-col">ISO-898921212</td>
+                                </tr>
+                                <tr>
+                                    <td class="label-col">Size</td>
+                                    <td class="value-col">34mm x 450mm x 19mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="label-col">Memory</td>
+                                    <td class="value-col">36GB RAM</td>
+                                </tr>
+                            </table>
+                            <ul class="bullet-feature-list">
+                                <li>Some great feature name here</li>
+                                <li>Lorem ipsum dolor sit amet, consectetur</li>
+                                <li>Duis aute irure dolor in reprehenderit</li>
+                                <li>Some great feature name here</li>
+                            </ul>
+                        </div>
+
+                        <div id="tab-reviews" class="tab-content-panel d-none">
+                            <h6 class="fw-bold mb-2">Customer Reviews (32)</h6>
+                            <p class="text-secondary small">Tabs toggle karne par bhi outer box ka size bilkul unique
+                                aur static rahega, automatically shift nahi hoga.</p>
+                        </div>
+
+                        <div id="tab-shipping" class="tab-content-panel d-none">
+                            <h6 class="fw-bold mb-2">Shipping Information</h6>
+                            <p class="text-secondary small">Worldwide standard delivery logistics and custom handling
+                                processing rules content placeholder track.</p>
+                        </div>
+
+                        <div id="tab-seller" class="tab-content-panel d-none">
+                            <h6 class="fw-bold mb-2">About Guanjoi Trading LLC</h6>
+                            <p class="text-secondary small">Verified premium seller network connection portfolio metrics
+                                details record window overview panel.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+                <div class="sidebar-reco-card">
+                    <div class="sidebar-main-title">You may like</div>
+
+                    <div class="reco-item-row">
+                        <div class="reco-thumb-frame">
+                            <img src="images/cloths/1.jpg" alt="Blazer">
+                        </div>
+                        <div class="reco-info-text">
+                            <span class="reco-product-name">Men Blazers Sets Elegant Formal</span>
+                            <span class="reco-price-range">$7.00 - $99.50</span>
+                        </div>
+                    </div>
+                    <div class="reco-item-row">
+                        <div class="reco-thumb-frame">
+                            <img src="images/cloths/2.jpg" alt="Polo">
+                        </div>
+                        <div class="reco-info-text">
+                            <span class="reco-product-name">Men Shirt Sleeve Polo Contrast</span>
+                            <span class="reco-price-range">$7.00 - $99.50</span>
+                        </div>
+                    </div>
+
+                    <div class="reco-item-row">
+                        <div class="reco-thumb-frame">
+                            <img src="images/tech/8.jpg" alt="Smartwatch">
+                        </div>
+                        <div class="reco-info-text">
+                            <span class="reco-product-name">Apple Watch Series Space Gray</span>
+                            <span class="reco-price-range">$7.00 - $99.50</span>
+                        </div>
+                    </div>
+
+                    <div class="reco-item-row">
+                        <div class="reco-thumb-frame">
+                            <img src="images/cloths/5.jpg" alt="bags">
+                        </div>
+                        <div class="reco-info-text">
+                            <span class="reco-product-name">Basketball Crew Socks Long Stuff</span>
+                            <span class="reco-price-range">$7.00 - $99.50</span>
+                        </div>
+                    </div>
+
+                    <div class="reco-item-row">
+                        <div class="reco-thumb-frame">
+                            <img src="images/cloths/6.jpg" alt="wallet">
+                        </div>
+                        <div class="reco-info-text">
+                            <span class="reco-product-name">New Summer Men's castrol T-Shirts</span>
+                            <span class="reco-price-range">$7.00 - $99.50</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- UNIQUE SCROLLED PORTION - AUTOMATICALLY HIDDEN ON DESKTOP -->
+    <div class="mob-exclusive-ysl-section">
+        <!-- Heading from image_871a49.png -->
+        <div class="mob-exclusive-ysl-heading">You may also like</div>
+        <!-- Left to Right Swipe Track Container -->
+        <div class="mob-exclusive-ysl-swipe-track">
+            <!-- Product Card 1 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/cloths/6.jpg" alt="wallet">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$10.30</div>
+                    <div class="mob-exclusive-ysl-details">Solid Backpack blue jeans large size</div>
+                </a>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/tech/8.jpg" alt="Smartwatch">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$10.30</div>
+                    <div class="mob-exclusive-ysl-details">T-shirts with multiple colors, for men</div>
+                </a>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/tech/5.jpg" alt="blue-headphones">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$10.30</div>
+                    <div class="mob-exclusive-ysl-details">Sport athletic running shoes neon crimson</div>
+                </a>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/tech/9.jpg" alt="White Gadget">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$14.50</div>
+                    <div class="mob-exclusive-ysl-details">Minimalist premium white smart watch device</div>
+                </a>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/cloths/9.jpg" alt="Headphones">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$18.99</div>
+                    <div class="mob-exclusive-ysl-details">Classic deep bass studio wire headphones</div>
+                </a>
+            </div>
+            <!-- Product Card 6 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/cloths/2.jpg" alt="Tshirt Pack">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$12.40</div>
+                    <div class="mob-exclusive-ysl-details">Premium organic summer cotton tee pack</div>
+                </a>
+            </div>
+            <!-- Product Card 7 -->
+            <div class="mob-exclusive-ysl-card">
+                <a href="">
+                    <div class="mob-exclusive-ysl-img-box">
+                        <img src="images/interior/1.jpg" alt="sofa">
+                    </div>
+                    <div class="mob-exclusive-ysl-price">$09.99</div>
+                    <div class="mob-exclusive-ysl-details">light and soft </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container my-4 p-3 d-none d-lg-block"
+        style="background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 5px;">
+        <h2 class="section-title">Related products</h2>
+
+        <div class="products-grid">
+
+            <div class="product-card">
+                <a href="product-detail.html">
+                    <div class="image-wrapper">
+                        <img src="images/cloths/6.jpg" alt="Wallet" class="product-img">
+                    </div>
+                    <div class="product-title">Xiaomi Redmi 8 Original</div>
+                    <div class="product-price">$32.00-$40.00</div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a href="product-detail.html">
+                    <div class="image-wrapper">
+                        <img src="images/tech/8.jpg" alt="Smart Watch" class="product-img">
+                    </div>
+                    <div class="product-title">Xiaomi Redmi 8 Original</div>
+                    <div class="product-price">$32.00-$40.00</div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a href="product-detail.html">
+                    <div class="image-wrapper">
+                        <img src="images/tech/9.jpg" alt="Headphones" class="product-img">
+                    </div>
+                    <div class="product-title">Xiaomi Redmi 8 Original</div>
+                    <div class="product-price">$32.00-$40.00</div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a href="product-detail.html">
+                    <div class="image-wrapper">
+                        <img src="images/tech/1.jpg" alt="Shorts" class="product-img">
+                    </div>
+                    <div class="product-title">Xiaomi Redmi 8 Original</div>
+                    <div class="product-price">$32.00-$40.00</div>
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="product-detail.html">
+                    <div class="image-wrapper">
+                        <img src="images/tech/2.jpg" alt="Kettle" class="product-img">
+                    </div>
+                    <div class="product-title">Xiaomi Redmi 8 Original</div>
+                    <div class="product-price">$32.00-$40.00</div>
+                </a>
+            </div>
+
+            <div class="product-card">
+                <a href="product-detail.html">
+                    <div class="image-wrapper">
+                        <img src="images/tech/3.jpg" alt="Organizer" class="product-img"
+                            height="200px">
+                    </div>
+                    <div class="product-title">Xiaomi Redmi 8 Original</div>
+                    <div class="product-price">$32.00-$40.00</div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container my-4">
+        <!-- Main Track Block Layout Engine -->
+        <div class="promo-banner d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+
+            <!-- Text Details Block Partition -->
+            <div>
+                <h2 class="banner-title">Super discount on more than 100 USD</h2>
+                <p class="banner-subtitle">Have you ever finally just write dummy info</p>
+            </div>
+
+            <!-- Action Element Trigger Partition -->
+            <div>
+                <button class="btn btn-warning btn-shop-now">Shop now</button>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="bg-color" style="background-color: #ffffff; margin-top: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footeerr">
+                    <div class="brnd">
+                        <img src="images/brand/logo-colored.svg" alt="logo">
+                        <p>Best information about the company gies here but now lorem ipsum is</p>
+                        <div class="media">
+                            <div class="media-icone">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+
+                            <div class="media-icone" style="padding: 5px 12px;">
+                                <i class="fa-brands fa-twitter"></i>
+                            </div>
+
+                            <div class="media-icone" style="padding: 5px 12px;">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+
+                            <div class="media-icone" style="padding: 5px 12px;">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+
+                            <div class="media-icone" style="padding: 5px 9px;">
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-1 footeerr" style="padding-left: 10px;">
+                    <div class="foot-about">
+                        <h3>About</h3>
+                        <p>About Us</p>
+                        <p>Find store</p>
+                        <p>Categories</p>
+                        <p>Blogs</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 footeerr footeerr-sp">
+                    <div class="foot-about">
+                        <h3>Partnership</h3>
+                        <p>About Us</p>
+                        <p>Find store</p>
+                        <p>Categories</p>
+                        <p>Blogs</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 footeerr">
+                    <div class="foot-about">
+                        <h3>Information</h3>
+                        <p>Help Center</p>
+                        <p>Money Refund</p>
+                        <p>Shipping</p>
+                        <p>Contact us</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 footeerr">
+                    <div class="foot-about">
+                        <h3>For users</h3>
+                        <p>Login</p>
+                        <p>Register</p>
+                        <p>Settings</p>
+                        <p>My Orders</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 footeerr">
+                    <div class="foot-about">
+                        <h3>Get App</h3>
+                        <img src="images/app/Group.png" alt="img">
+                        <img src="images/app/market-button.png" alt="img">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="footer-bottom-content">
+            <!-- Left Side: Copyright Text -->
+            <div class="copyright-text">
+                &copy; 2026 Ecommerce.
+            </div>
+
+            <!-- Right Side: Country/Language Dropdown Menu -->
+            <div class="dropdown language-dropdown">
+                <button class="dropdown-toggle" type="button" id="footerLangDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="images/flags/US@2x.png" alt="us"> English <i
+                        class="fa-solid fa-chevron-up arrow-icon"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="footerLangDropdown">
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/AE@2x.png" alt="us"> Arabic
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/CN@2x.png" alt="us"> Chines
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/DK@2x.png" alt="us"> Danish
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/FR@2x.png" alt="us"> Franch
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/GB@2x.png" alt="us"> English
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/AU@2x.png" alt="us"> Austrialian
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/IT@2x.png" alt="us"> Italian
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item active" href="#">
+                            <img src="images/flags/RU@2x.png" alt="us"> Russhian
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/details.js"></script>
+    <script src="js/page.js"></script>
+
+</body>
+
+</html>
